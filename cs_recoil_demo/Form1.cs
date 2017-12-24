@@ -93,7 +93,10 @@ namespace cs_recoil_demo
                     if ((a_x - x) * (a_x - x) + (a_y - y) * (a_y - y) <= 30 * 30)
                         in_circle++;
                 }
-                label1.Text+="\n\n总枪数:"+all+"\n命中枪数:"+in_circle+"\n命中率:"+(((double)in_circle)*100.0/((double)all)+"%");
+                if (label1.Text.Length > 30 * 5)
+                    label1.Text = "";
+                label1.Text += "\n\n总枪数:" + all + "\n命中枪数:" + in_circle + 
+                    "\n命中率:" + string.Format("{0:0.00%}", (((double)in_circle) / ((double)all)));
             }
         }
 
